@@ -29,7 +29,7 @@ class OrderInfo(BaseModel):
         on_delete=models.CASCADE
     )
     addr = models.ForeignKey(
-        'uesr.Address',
+        'user.Address',
         verbose_name='收货地址',
         on_delete=models.CASCADE
     )
