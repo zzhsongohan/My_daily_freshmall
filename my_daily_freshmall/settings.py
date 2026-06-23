@@ -146,7 +146,8 @@ AUTH_USER_MODEL = "user.User"
 # ======================================
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.qq.com'          # QQ邮箱SMTP服务器
-EMAIL_PORT = 25                     # SMTP端口
+EMAIL_PORT = 465                     # SSL端口
+EMAIL_USE_SSL = True 
 EMAIL_HOST_USER = '3529223875@qq.com'   # ✅ 改成你的邮箱
 EMAIL_HOST_PASSWORD = 'womimmnoplqmdbag'     # ✅ 不是QQ密码！是授权码！
 EMAIL_FROM = '天天生鲜<3529223875@qq.com>'  # 发件人显示名

@@ -67,7 +67,10 @@ class RegisterView(View):
         from celery_task.tasks import send_register_active_email
         send_register_active_email.delay(email, username, token)
         # 返回应答,跳转到index
-        return redirect(reverse("goods:index"))
+        # return redirect(reverse("goods:index"))
+        return HttpResponse("注册成功,请激活邮箱")
+
+
 
 
 
@@ -86,7 +89,8 @@ class ActiveView(View):
             user.is_active = 1
             user.save()
             # 跳转登录
-            return redirect(reverse("user:login"))
+            # return redirect(reverse("user:login"))
+            return HttpResponse("激活成功！请去登录页登录")
 
         except SignatureExpired as e:
             # 激活链接已过期
