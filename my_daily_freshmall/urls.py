@@ -20,12 +20,12 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from apps import user
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('tinymce/', include('tinymce.urls')),
-    path("user/",include(("user.urls","user"),namespace="user"))
+    path("user/",include(("apps.user.urls","user"),namespace="user"))
 ]
 
 if settings.DEBUG:

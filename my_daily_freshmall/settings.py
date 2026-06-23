@@ -15,18 +15,18 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(BASE_DIR / 'apps'))
+# sys.path.insert(0, str(BASE_DIR / 'apps'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-u@s(g!bkiff0t*c#xl0ufs1xx^0b4s)=ru3!$s*-gt8xa(fcxt"
+SECRET_KEY = "django-insecure-u@zzh2864799"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,10 +39,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "tinymce",
-    "user.apps.UserConfig",
-    "cart.apps.CartConfig",
-    "goods.apps.GoodsConfig",
-    "order.apps.OrderConfig",
+    "apps.user.apps.UserConfig",  # 改成 apps.user.apps.UserConfig
+    "apps.cart.apps.CartConfig",
+    "apps.goods.apps.GoodsConfig",
+    "apps.order.apps.OrderConfig",
 
 ]
 
@@ -83,11 +83,14 @@ WSGI_APPLICATION = "my_daily_freshmall.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "my_dailyfresh",
+        "NAME": "my_dailyFresh",
         "USER": "root",
         "PASSWORD": "zzh2864799",
-        "HOST": "localhost",
+        "HOST": "mysql",
         "PORT": "3306",
+        "OPTIONS": {
+            "charset": "utf8mb4",
+        },
     }
 }
 
@@ -136,3 +139,14 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 
 AUTH_USER_MODEL = "user.User"
+
+
+# ======================================
+# 邮箱配置（加在 settings 末尾）
+# ======================================
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.qq.com'          # QQ邮箱SMTP服务器
+EMAIL_PORT = 25                     # SMTP端口
+EMAIL_HOST_USER = '3529223875@qq.com'   # ✅ 改成你的邮箱
+EMAIL_HOST_PASSWORD = 'womimmnoplqmdbag'     # ✅ 不是QQ密码！是授权码！
+EMAIL_FROM = '天天生鲜<3529223875@qq.com>'  # 发件人显示名

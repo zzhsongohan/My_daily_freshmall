@@ -1,2 +1,8 @@
 mysqlclient
 pymysql
+itsdangerous==1.1.0
+celery==5.3.6
+redis==5.0.7
+Django==6.0.6
+Pillow==10.3.0
+django-tinymce==4.0.0
